@@ -22,12 +22,12 @@ class Presenter(val view: IActivity) : IPresenter {
                 .subscribe (
                     { it: Float ->
                         progress = it.toFloat()
-                        overalProgress += progress
                         if (overalProgress < 100) {
                             updateProgress()
                         }
                         else
                             unsubscribe()
+                        overalProgress += progress
                     },
                     { e: Throwable -> e.printStackTrace() },
                     { Log.i(CLASS_TAG, "COMPLETED") },
