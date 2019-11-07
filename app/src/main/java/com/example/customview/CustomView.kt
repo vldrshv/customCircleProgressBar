@@ -17,11 +17,11 @@ class CustomView : View {
 
 
     constructor(context: Context) : super(context) {
-        initBaseProgressView()//init(null, 0)
+        initBaseProgressView()
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        initBaseProgressView()//init(attrs, 0)
+        initBaseProgressView()
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
@@ -29,90 +29,8 @@ class CustomView : View {
         attrs,
         defStyle
     ) {
-        initBaseProgressView()//attrs, defStyle)
+        initBaseProgressView()
     }
-/*
-//    private fun init(attrs: AttributeSet?, defStyle: Int) {
-//        // Load attributes
-//        val a = context.obtainStyledAttributes(
-//            attrs, R.styleable.CustomView, defStyle, 0
-//        )
-//
-//        _exampleString = a.getString(
-//            R.styleable.CustomView_exampleString
-//        )
-//        _exampleColor = a.getColor(
-//            R.styleable.CustomView_exampleColor,
-//            exampleColor
-//        )
-//        // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
-//        // values that should fall on pixel boundaries.
-//        _exampleDimension = a.getDimension(
-//            R.styleable.CustomView_exampleDimension,
-//            exampleDimension
-//        )
-//
-//        if (a.hasValue(R.styleable.CustomView_exampleDrawable)) {
-//            exampleDrawable = a.getDrawable(
-//                R.styleable.CustomView_exampleDrawable
-//            )
-//            exampleDrawable?.callback = this
-//        }
-//
-//        a.recycle()
-//
-//        // Set up a default TextPaint object
-//        textPaint = TextPaint().apply {
-//            flags = Paint.ANTI_ALIAS_FLAG
-//            textAlign = Paint.Align.LEFT
-//        }
-//
-//        // Update TextPaint and text measurements from attributes
-//        invalidateTextPaintAndMeasurements()
-//    }
-//
-//    private fun invalidateTextPaintAndMeasurements() {
-//        textPaint?.let {
-//            it.textSize = exampleDimension
-//            it.color = exampleColor
-//            textWidth = it.measureText(exampleString)
-//            textHeight = it.fontMetrics.bottom
-//        }
-//    }
-//
-//    override fun onDraw(canvas: Canvas) {
-//        super.onDraw(canvas)
-//
-//        // TODO: consider storing these as member variables to reduce
-//        // allocations per draw cycle.
-//        val paddingLeft = paddingLeft
-//        val paddingTop = paddingTop
-//        val paddingRight = paddingRight
-//        val paddingBottom = paddingBottom
-//
-//        val contentWidth = width - paddingLeft - paddingRight
-//        val contentHeight = height - paddingTop - paddingBottom
-//
-//        exampleString?.let {
-//            // Draw the text.
-//            canvas.drawText(
-//                it,
-//                paddingLeft + (contentWidth - textWidth) / 2,
-//                paddingTop + (contentHeight + textHeight) / 2,
-//                textPaint!!
-//            )
-//        }
-//
-//        // Draw the example drawable on top of the text.
-//        exampleDrawable?.let {
-//            it.setBounds(
-//                paddingLeft, paddingTop,
-//                paddingLeft + contentWidth, paddingTop + contentHeight
-//            )
-//            it.draw(canvas)
-//        }
-//    }
-*/
     private var size = 0
     private var paint = Paint()
     private var rectF = RectF()
@@ -146,10 +64,6 @@ class CustomView : View {
             size = height
 
         setMeasuredDimension(size + xPadding, size + yPadding)
-    }
-
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
-        super.onLayout(changed, left, top, right, bottom)
     }
 
     public override fun onAttachedToWindow() {

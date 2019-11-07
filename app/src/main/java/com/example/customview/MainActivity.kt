@@ -18,20 +18,6 @@ class MainActivity : AppCompatActivity(), IActivity {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
-//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-//                progressView.setProgress(180 * 1f)
-//            }
-//
-//            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-//
-//            }
-//
-//            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-//
-//            }
-//        })
-
         getDataButton.setOnClickListener { presenter.getInfoFromServer() }
 
     }

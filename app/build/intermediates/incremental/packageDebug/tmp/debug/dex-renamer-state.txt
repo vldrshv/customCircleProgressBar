@@ -1,4 +1,4 @@
-#Thu Nov 07 16:09:53 MSK 2019
+#Thu Nov 07 16:18:54 MSK 2019
 base.0=C\:\\Users\\user\\Desktop\\MyApplication\\CustomView\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
