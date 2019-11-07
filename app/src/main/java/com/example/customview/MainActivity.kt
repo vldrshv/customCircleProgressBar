@@ -23,8 +23,9 @@ class MainActivity : AppCompatActivity(), IActivity {
     }
 
     override fun setProgress(progress: Float) {
+        Log.i(CLASS_TAG, "setProgress = $progress")
         progressView.setProgress(progress)
-        Log.i(CLASS_TAG, "$progress")
+//        Log.i(CLASS_TAG, "$progress")
     }
 
     override fun onDestroy() {

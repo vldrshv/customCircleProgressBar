@@ -10,6 +10,7 @@ import io.reactivex.schedulers.Schedulers
 class Presenter(val view: IActivity) : IPresenter {
     private val CLASS_TAG = "Presenter"
     private var progress: Float = 0f
+    private var overalProgress: Float = 0f
     private lateinit var server: Server
     private lateinit var disposable: Disposable
 
@@ -21,8 +22,10 @@ class Presenter(val view: IActivity) : IPresenter {
                 .subscribe (
                     { it: Float ->
                         progress = it.toFloat()
-                        if (progress < 100)
+                        overalProgress += progress
+                        if (overalProgress < 100) {
                             updateProgress()
+                        }
                         else
                             unsubscribe()
                     },

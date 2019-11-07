@@ -13,7 +13,7 @@ class Server {
     private var thread: Thread = Thread(Runnable {
         while (true) {
             byte = Random.nextInt(0, 10).toFloat()
-            Log.i(CLASS_TAG, "$byte")
+//            Log.i(CLASS_TAG, "$byte")
             Thread.sleep(200)
         }
     })
@@ -31,7 +31,7 @@ class Server {
             try {
                 while (true) {
                     it.onNext(byte)
-                    Thread.sleep(500)
+                    Thread.sleep(1000)
                 }
             } catch (e: Throwable) {
                 e.printStackTrace()

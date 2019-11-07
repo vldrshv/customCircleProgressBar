@@ -1,5 +1,8 @@
 package com.example.customview
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,7 +11,9 @@ import android.graphics.RectF
 import android.graphics.drawable.Drawable
 import android.text.TextPaint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
+import android.view.animation.LinearInterpolator
 
 /**
  * TODO: document your custom view class.
@@ -35,6 +40,7 @@ class CustomView : View {
     private var paint = Paint()
     private var rectF = RectF()
     private var progressAngle = 0f
+    private var _progress = 0f
 
 
     private fun initBaseProgressView() {
@@ -68,6 +74,7 @@ class CustomView : View {
 
     public override fun onAttachedToWindow() {
         super.onAttachedToWindow()
+
     }
 
     public override fun onDetachedFromWindow() {
@@ -75,7 +82,20 @@ class CustomView : View {
     }
 
     fun setProgress(progress: Float) {
-        progressAngle += (progress * 3.6f)
-        invalidate()
+        _progress = progress
+        animateView()
+    }
+    private fun animateView() {
+        val newProgressAngle = progressAngle + (_progress * 3.6f)
+        val frontEndExtend = ValueAnimator.ofFloat(progressAngle, newProgressAngle)
+        frontEndExtend.duration = 5000
+        frontEndExtend.interpolator = LinearInterpolator()
+        frontEndExtend.addUpdateListener (ValueAnimator.AnimatorUpdateListener() {
+            if (progressAngle < newProgressAngle && progressAngle < 360)
+                progressAngle += 3.6f
+            invalidate()
+        }
+        )
+        frontEndExtend.start()
     }
 }
